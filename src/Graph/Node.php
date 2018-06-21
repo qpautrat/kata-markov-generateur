@@ -23,6 +23,8 @@ class Node
     public function addLink(Link $link)
     {
         $this->links[] = $link;
+
+        return $this;
     }
 
     public function getLinks()
