@@ -3,13 +3,15 @@
 namespace Markov\Generator;
 
 use Markov\Graph\Graph;
+use Markov\Graph\Node;
 
-class CanonGenerator implements Generator
+class RandomStartGenerator implements Generator
 {
     public function generate(Graph $graph): string
     {
         /** @var Node $node */
-        $node = $graph->getNodes()[1];
+        $nodes = $graph->getNodes();
+        $node = $nodes[array_rand($nodes)];
         $words = [];
 
         do {

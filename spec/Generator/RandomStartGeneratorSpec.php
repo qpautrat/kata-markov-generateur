@@ -2,23 +2,22 @@
 
 namespace spec\Markov\Generator;
 
-use Markov\Generator\CanonGenerator;
 use Markov\Generator\Generator;
+use Markov\Generator\RandomStartGenerator;
 use Markov\Graph\Graph;
 use Markov\Graph\Link;
 use Markov\Graph\Node;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class CanonGeneratorSpec extends ObjectBehavior
+class RandomStartGeneratorSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(CanonGenerator::class);
+        $this->shouldHaveType(RandomStartGenerator::class);
         $this->shouldImplement(Generator::class);
     }
 
-    function it_generate_a_text_from_a_graph_by_beginning_from_second_word()
+    function it_generate_a_text_from_a_graph_by_beginning_from_a_random_word()
     {
         // Arrange
         $graph = new Graph();
@@ -27,6 +26,6 @@ class CanonGeneratorSpec extends ObjectBehavior
         $graph->addNode(Node::fromWord('test'));
 
         // Act & Assert
-        $this->generate($graph)->shouldReturn('simple test');
+        $this->generate($graph)->shouldBeString();
     }
 }
