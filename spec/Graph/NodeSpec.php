@@ -8,6 +8,11 @@ use Prophecy\Argument;
 
 class NodeSpec extends ObjectBehavior
 {
+    function let()
+    {
+        $this->beConstructedThrough('fromWord', ['de']);
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType(Node::class);
