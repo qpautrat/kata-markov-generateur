@@ -1,0 +1,4 @@
+suites:
+    markov:
+        namespace: Markov
+        psr4_prefix: Markov
