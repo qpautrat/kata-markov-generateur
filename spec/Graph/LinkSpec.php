@@ -17,4 +17,9 @@ class LinkSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Link::class);
     }
+
+    function it_get_word()
+    {
+        $this->word()->shouldReturn('ta');
+    }
 }

@@ -27,4 +27,16 @@ class GraphSpec extends ObjectBehavior
         // Assert
         $this->getNodes()->shouldReturn([$node]);
     }
+
+    function it_select_node_from_word()
+    {
+        // Arrange
+        $node = Node::fromWord('node');
+        $node2 = Node::fromWord('node2');
+        $this->addNode($node);
+        $this->addNode($node2);
+
+        // Act & Assert
+        $this->selectNodeFromWord('node2')->shouldReturn($node2);
+    }
 }

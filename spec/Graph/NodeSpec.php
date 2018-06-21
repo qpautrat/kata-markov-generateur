@@ -29,4 +29,21 @@ class NodeSpec extends ObjectBehavior
         // Assert
         $this->getLinks()->shouldHaveCount(1);
     }
+
+    function it_get_word()
+    {
+        $this->word()->shouldReturn('de');
+    }
+
+    function it_select_a_link()
+    {
+        // Arrange
+        $link1 = Link::fromWord('ta');
+        $link2 = Link::fromWord('ma');
+        $this->addLink($link1);
+        $this->addLink($link2);
+
+        // Act & Assert
+        $this->selectLink()->shouldReturn($link1);
+    }
 }

@@ -5,7 +5,7 @@ namespace Markov\Graph;
 class Node
 {
     private $word;
-    private $links;
+    private $links = [];
 
     private function __construct()
     {
@@ -30,5 +30,19 @@ class Node
     public function getLinks()
     {
         return $this->links;
+    }
+
+    public function word()
+    {
+        return $this->word;
+    }
+
+    public function selectLink()
+    {
+        if (empty($this->links)) {
+            return null;
+        }
+
+        return $this->links[0];
     }
 }

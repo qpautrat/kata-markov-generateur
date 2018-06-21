@@ -18,4 +18,9 @@ class Link
 
         return $link;
     }
+
+    public function word()
+    {
+        return $this->word;
+    }
 }
