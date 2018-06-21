@@ -2,9 +2,9 @@
 
 namespace spec\Markov\Graph;
 
+use Markov\Graph\Link;
 use Markov\Graph\Node;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class NodeSpec extends ObjectBehavior
 {
@@ -16,5 +16,17 @@ class NodeSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(Node::class);
+    }
+
+    function it_add_link()
+    {
+        // Arrange
+        $link = Link::fromWord('ta');
+
+        // Act
+        $this->addLink($link);
+
+        // Assert
+        $this->getLinks()->shouldHaveCount(1);
     }
 }
